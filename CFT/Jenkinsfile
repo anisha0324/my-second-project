@@ -1,9 +1,14 @@
 pipeline {
     agent any
     environment {
-        WORKSPACE  = '/Users/nareshsalla/.jenkins/workspace'
+        WORKSPACE='/Users/nareshsalla/.jenkins/workspace'
     }
     stages {
+        stage('Checkout code') {
+        steps {
+            checkout scm
+        }
+    }
         stage('build') {
             steps {
                 sh '/usr/local/bin/aws sts get-caller-identity'
