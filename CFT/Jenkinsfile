@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Checkout code') {
         steps {
+            sh 'cd ${WORKSPACE}'
             checkout scm
         }
     }
