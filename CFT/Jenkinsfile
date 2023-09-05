@@ -3,8 +3,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh '/usr/local/bin/aws sts get-caller-identity'
-                sh 'pwd ${WORKSPACE}'
                 sh 'aws cloudformation create-stack --stack-name my-first-ec2-stack --template-body file://${WORKSPACE}/CFT/ec2.yaml'
             }
         }
